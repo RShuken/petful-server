@@ -1,23 +1,50 @@
 class Queue {
-  constructor() {
-    // Set initial data.
+  constructor(maxSize = Infinity) {
+    this.queue = new LinkedList();
+    this.maxSize = maxSize;
+    this.size = 0;
   }
 
   enqueue(data) {
-    // Add some data to the queue.
+    if (this.hasRoom()) {
+      this.queue.addToTail(data);
+      this.size++;
+    } else {
+      throw new Error('The Queue is now full');
+    }
   }
 
   dequeue() {
-    // Remove some data from the queue.
+    if (!this.isEmpty()) {
+      const data = this.queue.removeHead();
+      this.size--;
+      return data;
+    } else {
+      throw new Error('The Queue is now empty');
+    }
   }
 
   show() {
-    // Return the next item in the queue.
+    if (!this.isEmpty()) {
+      return this.queue.head.data;
+    } else {
+      return null;
+    }
   }
 
   all() {
-    // Return all items in the queue.
+    let queueArray = [];
+    if (!this.isEmpty()) {
+      let currentNode = this.queue.head;
+      while (currentNode) {
+        queueArray.push(currentNode.data);
+        currentNode = currentNode.next;
+      }
+      return queueArray;
+    } else {
+      return null;
+    }
   }
 }
 
-module.exports = Queue
+module.exports = Queue;
