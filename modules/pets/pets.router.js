@@ -3,7 +3,6 @@ const json = require('body-parser').json()
 
 const Pets = require('./pets.service')
 const People = require('../people/people.service')
-const { people } = require('../../store')
 
 const router = express.Router()
 
@@ -16,7 +15,7 @@ router.delete('/', json, (req, res) => {
   const { type } = req.body
   Pets.dequeue(type)
   People.dequeue()
-  return res.status(200).end
+  return res.status(200).end()
 })
 
 module.exports = router

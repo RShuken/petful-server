@@ -7,6 +7,14 @@ class Queue {
     this.size = 0;
   }
 
+  isEmpty() {
+    return this.size === 0;
+  }
+
+  hasRoom() {
+    return this.size < this.maxSize;
+  }
+
   enqueue(data) {
     if (this.hasRoom()) {
       this.queue.addToTail(data);

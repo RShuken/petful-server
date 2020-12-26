@@ -22,6 +22,6 @@ module.exports = {
   },
 
   dequeue(type) {
-    type === 'cat' ? pets.cat.dequeue() : pets.dogs.dequeue()
+    type === 'cat' ? pets.cats.dequeue() : pets.dogs.dequeue()
   }
 }
