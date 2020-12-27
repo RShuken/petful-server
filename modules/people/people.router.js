@@ -1,14 +1,14 @@
-const express = require('express')
-const json = require('body-parser').json()
+const express = require('express');
+const json = require('body-parser').json();
 
-const People = require('./people.service')
+const People = require('./people.service');
 
-const router = express.Router()
+const router = express.Router();
 
 router.get('/', (req, res) => {
-  const person = People.get()
-  return res.json(person).status(200)
-})
+  const person = People.get();
+  return res.json(person).status(200);
+});
 
 router.get('/people_list', (req, res) => {
   let people = People.getAll();
@@ -21,4 +21,4 @@ router.post('/', json, (req, res) => {
   res.status(200).end();
 });
 
-module.exports = router
+module.exports = router;
