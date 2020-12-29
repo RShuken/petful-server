@@ -34,7 +34,7 @@ class Queue {
     }
   }
 
-  show() {
+  getHead() {
     if (!this.isEmpty()) {
       return this.queue.head.data;
     } else {
